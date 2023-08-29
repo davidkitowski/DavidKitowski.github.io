@@ -1,0 +1,29 @@
+
+
+section {
+    --rotateX: 0px;
+    margin: auto;
+    width: 10%;
+    padding: 15px;
+    background-color: rgb(64,64,64);
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px)
+                rotateY(0deg);
+}
+
+
+section::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(48, 48, 48);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: auto;
+    transform: translateZ(-20px)
+                translateY(var(--rotateX))
+                scale(1.1);
+    box-shadow: 0 0 20px 1px rgba(0,0,0,0.1);
+}

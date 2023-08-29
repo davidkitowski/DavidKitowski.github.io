@@ -1,0 +1,28 @@
+.projectContent {
+    display: none;
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    z-index: 5;
+    box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.2);
+    cursor:auto;
+}
+
+#projectDetails {
+    position: fixed;
+    height: 100%;
+    top: 0%;
+    overflow: auto;
+    margin: 0;
+    z-index: 4;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: none;
+    
+    cursor: pointer;
+}
+
+.gridContent>article {
+    cursor: pointer;
+}

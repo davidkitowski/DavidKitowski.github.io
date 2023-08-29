@@ -1,0 +1,37 @@
+<h1>Recreating images in various bizarre ways</h1>
+<article>
+    <img src="images/railLines.png"/>
+    Around 2020, I found a website called <a href="http://linify.me/">linify.me</a>. The main feature of it was uploading an 
+    image of your choice and watching it be slowly recreated using straight lines. While the idea was fun, 
+    my main reasoning for recreating it was because I found a short discussion on how it could be replicated. 
+    I challenged myself by only looking at the overview of how linifys image recreation worked, so no following 
+    prexisting code examples!
+
+    <br><br>
+
+    While I've lost the code for the recreation of linify, I do have some code for some of the offshoot ideas that I did after it. 
+    One idea was to recreate the image with triangles instead.
+    <br><br>
+    <img src="images/50k120poly.png"/>
+    <p class="caption">An example of one the images I recreated using this method.</p>
+    A lot of triangle based image recreations are usually using some form of a genetic algorithm. This approach usually means that 
+    you are randomly adjusting the characteristics of each triangle until it more closely resembles the actual image. Since we are 
+    dealing with randomness, recreating small details can take a massive amount of time.
+    <br><br>
+    
+    The big issue with this approach is that randomly stumbling your way into recreating an image is really slow. To make matters worse, most
+    Python image libraries use the CPU for rendering shapes! 
+    I later devised an approach that I haven't seen used elsewhere. The new idea was to draw a random line and to subdivide it anywhere 
+    it detects a large change in color. With enough lines, you can usually get close enough that any mistakes made aren't that big of a deal.
+
+    <img src="images/lineProject.png"/>
+    <p class="caption">The result of this line subdividing approach makes for a really nice blocky effect when using a huge number of them at a large size.</p>
+
+    While this project was a bit arbitrary, I learned a lot throughout making it. I became a lot more familiar with Python libraries like 
+    Pillow, PyGame, and Pyglet. I also became a lot more comfortable with digging through documentation since a lot of tutorials would usually lack 
+    what I needed.
+    <br><br>
+    The primary reasoning for this project lasting for such a long time was that I worked on it during college breaks. Usually when I had time 
+    I also had some new ideas on how I could improve things.
+
+</article>

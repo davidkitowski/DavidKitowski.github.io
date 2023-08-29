@@ -1,0 +1,89 @@
+<h1>Chess with a twist</h1>
+<article>
+
+    For our last 2 quarters, we were told to come up with our own idea for our final project. I chose to develop a chess engine / bot.
+    <br><br>
+    Developing a chess engine can be rather finnicky since if there is a bug, there is an <i>extremely</i> high chance that your bot will abuse or run into it. 
+    Performance is also important for a chess engine since within just 4 moves from both sides, you are looking at 84 billion possibilities.
+    <br><br>
+    For reference, top of the line chess engines like stockfish can search 3.1 billion moves in about 20 seconds on a Ryzen 5 2600 CPU.
+    <br><br>
+    While all of this is already a fairly big challenge, I also decided to add a small twist to it. What if you could combine pieces?
+    <img src="\images\pawnKnight.png">
+    <p class="caption">Behold! The pawn knight hybrid.</p>
+    I mainly thought of this idea since I remember playing the chess game that came with Windows 7 and always losing to it. What if 
+    you could win? (albeit in a rather unfair way.) Anyways, back to chess engine development. The big first step for a chess engine 
+    is having it be bug free and all rules of chess implemented.
+    <br><br>
+    This can sound easier said than done. Since we want to keep things optimized, using 2D arrays is out of question because of pointers slowing things down. 
+    To represent the board we want to use a 1 dimensional array. This can introduce a whole new set of bugs, but the performance benefits outweigh the 
+    downsides.
+    <img src="\images\pawnWrapAround.png">
+    <p class="caption">With 1 dimensional arrays, we introduce a new rule to chess. Watch out for the sneaky pawn wrap around attack!</p>
+
+    Another vital part of chess engines is being able to undo a move. The reason for undoing being important is that our bot is going to need it 
+    to be able to search through moves that could be good or bad. This can introduce additional issues, like pawn promotions not being undone 
+    (which can result in the bot causing promotions to happen out of thin air).
+
+    <br><br>
+
+    These were just a small sample of some of the things you need to deal with when making chess engines (and writing the rest of it would make this 
+    article way too long). Once I got a fully functional chess engine I could move onto making the bot.
+    
+    <br><br>
+    <h2>The bot</h2>
+    One issue that frequently bumped into while making the bot was figuring out if the changes I made were actually making the bot play better. 
+    I ended up using the chess bot from Lichess to test the performance of my bot.
+    <img src="\images\botLichessWin.png">
+    <p class="caption">My bot is able to pretty consistently win against the level 5 bot on Lichess. Though it tends to be slow at checkmating.</p>
+    Level 5 bots are fairly easy for my bot to handle. Although my bot fails against bots any level higher. Higher level Lichess bots tend to 
+    use their queen better and position their kings much more safely than my bot is able to. Another thing my bot struggles with is actually 
+    pulling off a checkmate since it cannot look that far ahead of time.
+    
+    <br><br>
+    
+    Another issue I had when developing the bot was the surprising lack of documentation about chess bot optimizations. Finding descriptions on 
+    how these systems can help bot performance was easy, but finding anything on the actual implementation was difficult. At times I had to do 
+    some guessing work on how to implement things. One resource I found incredibly helpful was the blog for 
+    <a href="http://mediocrechess.blogspot.com/2007/01/guide-iterative-deepening.html">mediocre chess.</a> While they usually didn't give exact details 
+    on the implementation of certain features, the descriptions were always good enough for me to formulate my own code for it.
+
+    <br><br>
+
+    <h2>The interface</h2>
+    <img src="\images\chessOldUI.png">
+    <p class="caption">One thing that I haven't mentioned is that I've been using a text based interface for my engine leading up to this point.</p>
+
+    Once I had the bot portion of my project in a good enough state, I started work on the UI. The actual making of the UI wasn't too difficult but finding 
+    decent documentation on the C# support for the Godot game engine was rather annoying. The important thing was that in this UI the ability to combine pieces 
+    was possible.
+
+    <img src="\images\chessGame.png">
+    <p class="caption">The final UI ended up being a little bit rushed since I had to help with moving between houses in the middle of my final.</p>
+
+    <br><br>
+    The result of my chess engine ended up with these notable features:
+    <ul>
+        <li>A bitboard for handling move generation (although 1 million moves per second is considered kind of mediocre when compared to other engines that can do upwards of 10 million moves per second.)</li>    
+        <li>Piece combinations as previously mentioned.</li>
+        <li>A bot that made use of alpha beta pruning and iterative deepening.</li>
+        <li>Evaluating how good a move is based on positioning.</li>
+        <li>Move sorting (e.g, searching through moves that seem the most promising, such as the 
+            <a href="https://www.chessprogramming.org/Principal_Variation">principle variation</a>, 
+            sacrificing lower value pieces to take out high value ones, and <a href="https://www.chessprogramming.org/Killer_Move">killer moves</a>.)
+        </li>
+        <li>Quiescence searching, which makes the engine much more stable in decision making and less likely to sacrifice a queen for some random knight for the 100th time.</li>
+    </ul>
+    <h2>What the heck does this all mean?? Does it actually play well?</h2>
+    To finally answer my question of whether or not my engine actually played well, I added in support for communicating between chess interfaces so that 
+    my bot could automatically play games against other bots.
+    <br><br>
+    After letting my bot play against bots made by other people on Lichess, it determined its ELO rating was around 1200. Much to my 
+    disappointment this is considered average. This ELO rating would likely earn my engine a staggering 656th place on CCRL (Computer Chess Rating Lists).
+    <br><br>
+    Although performance is fairly average, it isn't surprising since I didn't have the time to implement other features that would probably 
+    squeeze out 300-400 ELO out of my engine.
+    <br><br>
+    For now the project is on hiatus. In the future, I would like to continue work I've done on a total rewrite of this engine. I think the 
+    big thing holding back my bot is move generation. Currently, 1 million moves per second doesn't seem to be enough since some positions can still run really slowly.
+</article>

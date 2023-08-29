@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>Portfolio website</title>
+        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="navBar.css" />
+        <link rel="stylesheet" href="3dEffect.css" />
+        <link rel="stylesheet" href="projects.css" />
+        <link rel="stylesheet" href="fadeAnimations.css" />
+        <link rel="stylesheet" href="backgroundEffects.css" />
+        <script src="scripts/fadeAnims.js"></script>
+        <script src="scripts/backgroundEffect.js"></script>
+        <script src="scripts/effectInitializer.js"></script>
+        <link rel="icon" href="data:,">
+        
+        
+    </head>
+
+    <body>
+        
+        <nav>
+            <p id="initials">DK</p>
+            <ul>
+                
+                <li><a href="#about">About</a></li>
+                <li><a href="#personalProjects">Personal Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Experience/skills</a></li>
+            </ul>
+        </nav>
+        
+        <canvas id="backgroundEffect"></canvas>
+        
+        
+        <div id="hero" class="wideContent"><br/><br/><br/><h1>Portfolio stuff</h1></div>
+        
+        <div id="projectDetails" class="wideContent">
+
+        
+
+        </div>
+        <script src="scripts/JSONToProject.js"></script>
+
+        
+        <div id="about">
+            <article>
+                <h2>Welcome</h2>
+                This is my portfolio page that shows a bit more than what I have listed on my resume. I also have some personal projects that I've
+                done over the course of time I spent in college. 
+                <br>
+                This webpage can hopefully serve as a showcase of some of the things I know or that I'm willing to learn.
+            </article>
+
+        </div>
+        
+        <div id="personalProjects" class="wideContent" onload="JSONToProject();">
+            <h1>Personal projects</h1>
+            <div class="grid">
+                
+        </div>
+            
+            
+        </div>
+        <div>
+            <h1>experience/skills</h1>
+            <article id="education">
+                <h2>Olympic college</h2>
+                Associates Degree in Software Development (January 2019 - June 2021)
+                <br>
+                Bachelor's in Information Systems (September 2021 - June 2023)
+                <br><br>
+                Total GPA: 3.76
+
+            </article>
+            <article id="skills">
+                <h3>Programming knowledge</h3>
+                <ul>
+                    <li>Python - Main language I've used for messing around with prototypes or whatever ideas I have.</li>
+                    <li>Java - Fairly experienced with it. (OCA Java SE 8 certified (1Z-808))</li>
+                    <li>C# - Less experience than with Java, but I've become comfortable with it.</li>
+                    <li>PHP - Not heavily experienced with MVC concepts, I've worked on a class project that 
+                        involved creating accounts and allowed for some basic things like submitting reviews from the user end.</li>
+                    <li>SQL - Used for the same website project mentioned above.</li>
+                </ul>
+                <h3>Web dev:</h3>
+                <ul>
+                    <li>HTML, CSS, Javascript (how else would I make this website)</li>
+                    <li>JQuery (Javascript framework)</li>
+                </ul>    
+            </article>
+            
+        </div>
+
+        <div>
+            <h1>Hobby stuff</h1>
+            <article>
+                Outside of coding as a hobby, I also really enjoy doing digital art. 
+                My experience with 2D art is a little more extensive when compared to some 
+                of the things I've done in 3D.
+                <img src="images/kakapo.png"/>
+                <p class="caption">I made this one around 3 years ago.</p>
+                In terms of 3D projects I don't have many things that I would consider 
+                finished (which is probably the main reason why I have less experience with 3D versus 2D). d
+                <img src="images/3dProject.png"/>
+                <p class="caption">I generally prefer to do hardsurface modeling. This is just the high poly mesh, hence the lack of textures.</p>
+            </article>
+            
+        </div>
+
+        <footer>Made by David Kitowski.</footer>
+        
+    </body>
+</html>

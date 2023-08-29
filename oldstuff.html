@@ -1,0 +1,35 @@
+For our finals for the last two quarters of my college, we were told to come up with a project idea that was either related to IT or programming.
+After reviewing a few different ideas I decided on making a chess engine.
+<br><br>
+During the development of this whole thing I had three main things that were really challenging for me. The first hurdle I had to get over was 
+that I had to do all of the researching and developing on my own, the second was debugging the engine itself, and the final one was performance, 
+both in how fast the bot could generate moves and in the actual quality of the move being played.
+<br><br>
+Early on in the process of considering what I wanted for my chess engine I wanted to have it so that chess pieces could be combined, so for example 
+a queen that can also do the moves of a knight. This difference made things a little more difficult since I can't take the same shortcuts that many other 
+chess engines could easily take when keeping track of the state of pieces.
+
+
+
+
+
+<br><br>
+The biggest resource that helped me in getting started with the engine was the <a href="https://www.chessprogramming.org/Main_Page">Chess Programming Wiki</a>,
+which had a ton of explanations for why certain things are done the way they are in most chess engines. One thing that gradually became hammered into my 
+head when developing my engine was to always do a thorough test of any changes I made. Nearing the end of making this engine I made 
+debugging features that helped in making testing much less tedious, such as loading board positions through FEN strings.
+<br><br>
+Once I had all of the chess rules implemented without any bugs remaining, I started on the actual bot part of the engine. This part 
+is significantly more difficult to test since most of the tests aren't about easily discernible things like bugs. Most of the tests I 
+had to do were mostly about figuring out whether or not the changes I made were making the bot play better or if it was able to find a move 
+in less time.
+<br><br>
+For the last part of my final, I decided to try and give my chess engine a nicer looking interface, since prior I was using a text based one. 
+<img src="\images\chessOldUI.png"/>
+<p class="caption">The old interface.</p>
+Instead of using an interface library I went with the Godot game engine instead. While I initially had some troubles with making sure 
+that the whole game wouldn't freeze when the bot was deciding on a move the rest of the process wasn't too difficult. In the end I also 
+got the combining features working as well. A fun side effect of the combining feature is that since I made it so that whenever a pawn promotes 
+they lose any pieces they combined with, which means that if you combine your king with a pawn you could lose the game by promoting your king out of existance.
+<img src="\images\chessGameCombined.png">
+<p class="caption">As you can see here, the white pawn has a little knight on it's head that is allowing it to also make knight moves.</p>

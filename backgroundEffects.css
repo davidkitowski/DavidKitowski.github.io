@@ -1,0 +1,13 @@
+#backgroundEffect {
+    position: fixed;
+    border:1px solid #000000;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+#backgroundDemo {
+    border:1px solid #000000;
+    height: 40%;
+    width: 100%;
+}

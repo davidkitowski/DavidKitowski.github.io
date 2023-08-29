@@ -1,0 +1,11 @@
+[{"projectTitle":"Recreating images using lines", "date":"Sometime around 2020-2021", "image":"/images/lineProject.png",
+"description":"Around 2020, I found a website called Linify.me which is a website that allows you to load up an image and have a script recreate it using exclusively straight lines. At first I tried making an exact recreation, but the project changed over time.",
+"html":"/otherContent/lineProject.html"},
+
+{"projectTitle":"Chess engine", "date":"Late 2022-2023", "image":"/images/knight.png",
+"description":"A small chess engine I made that has a unique little twist on it.",
+"html":"/otherContent/chessProject.html"},
+
+{"projectTitle":"This website", "date":"2023, July 20th-August 3rd", "image":"/images/website.png",
+"description":"Welcome to my website. It smells weird, the floors creak, the walls ooze green slime (not really).",
+"html":"/otherContent/websiteProject.html"}]
